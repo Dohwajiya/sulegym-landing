@@ -66,12 +66,18 @@ export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    // setInterval 콜백 내에서만 setState 호출 (외부 구독 패턴)
+    // 마운트 직후 비동기 콜백으로 즉시 계산 (1초 플레이스홀더 딜레이 제거)
+    const initialTimer = setTimeout(() => setTimeLeft(calculateTimeLeft()), 0);
+
+    // 이후 1초 간격으로 업데이트
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearTimeout(initialTimer);
+      clearInterval(timer);
+    };
   }, []);
 
   // 서버 렌더링 시 또는 첫 interval 실행 전

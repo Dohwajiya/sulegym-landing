@@ -5,7 +5,7 @@
   --color-foreground: #ffffff;
   --color-muted: #888888;
   --color-accent: #aaaaaa;
-  --font-sans: "Montserrat", "Arial Black", sans-serif;
+  --font-sans: var(--font-montserrat), "Arial Black", sans-serif;
 }
 
 body {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Countdown from "../components/Countdown";
 
 /**
@@ -18,27 +19,22 @@ export default function Home() {
       <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-14 animate-[fadeInUp_1.2s_ease-out_both]">
 
         {/* ============================================
-            로고 이미지 — CSS mask로 배경 제거
-            mask-mode: luminance → 흰색=보임, 검정=투명
+            로고 이미지 — Image + filter + mix-blend-mode
+            contrast(2): 어두운 배경을 순수 검정으로 강제
+            mix-blend-lighten: 검정 영역을 페이지 배경과 동일하게 처리
+            → 모바일 Safari 완벽 지원
             파일 위치: public/images/logo.png
             크기 조정: width/height 값 변경
             ============================================ */}
-        <div
-          role="img"
-          aria-label="SULÉGYM Logo"
-          className="w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px] bg-white"
-          style={{
-            WebkitMaskImage: 'url(/images/logo.png)',
-            maskImage: 'url(/images/logo.png)',
-            WebkitMaskSize: 'contain',
-            maskSize: 'contain',
-            WebkitMaskRepeat: 'no-repeat',
-            maskRepeat: 'no-repeat',
-            WebkitMaskPosition: 'center',
-            maskPosition: 'center',
-            maskMode: 'luminance',
-          } as React.CSSProperties}
-        />
+        <div className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px]">
+          <Image
+            src="/images/logo.png"
+            alt="SULÉGYM Logo"
+            fill
+            className="object-contain mix-blend-lighten [filter:contrast(2)]"
+            priority
+          />
+        </div>
 
         {/* ============================================
             서브타이틀 — "Coming End of March"
