@@ -26,7 +26,7 @@ export default function Home() {
             파일 위치: public/images/logo.png
             크기 조정: width/height 값 변경
             ============================================ */}
-        <div className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px]">
+        <div className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px] bg-black">
           <Image
             src="/images/logo.png"
             alt="SULÉGYM Logo"
