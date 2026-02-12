@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Countdown from "../components/Countdown";
 
 /**
@@ -19,25 +18,33 @@ export default function Home() {
       <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-14 animate-[fadeInUp_1.2s_ease-out_both]">
 
         {/* ============================================
-            로고 이미지 — 별도 객체 (크기/위치 조정 가능)
+            로고 이미지 — CSS mask로 배경 제거
+            mask-mode: luminance → 흰색=보임, 검정=투명
             파일 위치: public/images/logo.png
             크기 조정: width/height 값 변경
             ============================================ */}
-        <div className="relative w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px]">
-          <Image
-            src="/images/logo.png"
-            alt="SULÉGYM Logo"
-            fill
-            className="object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.05)]"
-            priority
-          />
-        </div>
+        <div
+          role="img"
+          aria-label="SULÉGYM Logo"
+          className="w-[180px] h-[180px] sm:w-[240px] sm:h-[240px] md:w-[300px] md:h-[300px] bg-white"
+          style={{
+            WebkitMaskImage: 'url(/images/logo.png)',
+            maskImage: 'url(/images/logo.png)',
+            WebkitMaskSize: 'contain',
+            maskSize: 'contain',
+            WebkitMaskRepeat: 'no-repeat',
+            maskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            maskPosition: 'center',
+            maskMode: 'luminance',
+          } as React.CSSProperties}
+        />
 
         {/* ============================================
             서브타이틀 — "Coming End of March"
             별도 텍스트 객체 (크기/색상/간격 조정 가능)
             ============================================ */}
-        <p className="text-sm sm:text-lg md:text-2xl font-normal text-[#888888] tracking-[0.15em] uppercase animate-[fadeInUp_1s_ease-out_0.4s_both]">
+        <p className="text-lg sm:text-2xl md:text-4xl font-normal text-[#888888] tracking-[0.15em] uppercase animate-[fadeInUp_1s_ease-out_0.4s_both]">
           Coming End of March
         </p>
 

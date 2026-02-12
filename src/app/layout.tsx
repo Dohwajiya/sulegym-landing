@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "SULÉGYM — Coming Soon",
-  description: "SULÉGYM - 새로운 피트니스 경험이 곧 시작됩니다.",
+  description: "SULÉGYM - 곧 당신의 운동이 설레짐니다.",
   openGraph: {
     title: "SULÉGYM — Coming Soon",
-    description: "새로운 피트니스 경험이 곧 시작됩니다.",
+    description: "곧 당신의 운동이 설레짐니다.",
     type: "website",
     url: "https://www.sulegym.com",
   },

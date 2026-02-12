@@ -9,9 +9,9 @@ interface TimeLeft {
   seconds: number;
 }
 
-// ✅ 목표 날짜: 2026년 3월 26일 00:00:00 (KST)
+// ✅ 목표 날짜: 2026년 3월 26일 오후 7시 (KST)
 // 변경하려면 이 값을 수정하세요.
-const TARGET_DATE = new Date("2026-03-26T00:00:00+09:00");
+const TARGET_DATE = new Date("2026-03-26T19:00:00+09:00");
 
 function calculateTimeLeft(): TimeLeft {
   const now = new Date();
