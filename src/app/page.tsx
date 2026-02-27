@@ -57,8 +57,8 @@ export default function Home() {
                     런칭일 표시 — 카운트다운 아래
                                 별도 텍스트 객체 (크기/색상/간격 조정 가능)
                                             ============================================ */}
-                <p className="text-sm sm:text-base md:text-lg font-light text-[#666666] tracking-[0.1em] animate-[fadeInUp_1s_ease-out_1s_both]">
-                          Grand Open — April 1, 2026
+                        <p className="text-base sm:text-lg md:text-xl font-normal text-[#aaaaaa] tracking-[0.15em] uppercase animate-[fadeInUp_1s_ease-out_1s_both]">
+                                    Launch — April 1, 2026 · 5 PM KST
                 </p>
 
       </div>
