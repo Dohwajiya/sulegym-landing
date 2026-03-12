@@ -46,7 +46,7 @@ export default function Home() {
 
         {/* ============================================
             카운트다운 타이머 — 별도 컴포넌트
-                        목표 날짜: 2026년 4월 1일 오후 5시
+                                        목표 날짜: 2026년 4월 8일 오후 5시
             변경: src/components/Countdown.tsx
             ============================================ */}
         <div className="animate-[fadeInUp_1s_ease-out_0.7s_both]">
@@ -58,7 +58,7 @@ export default function Home() {
                                 별도 텍스트 객체 (크기/색상/간격 조정 가능)
                                             ============================================ */}
                         <p className="text-base sm:text-lg md:text-xl font-normal text-[#aaaaaa] tracking-[0.15em] uppercase animate-[fadeInUp_1s_ease-out_1s_both]">
-                                    Launch — April 1, 2026 · 5 PM KST
+                                                  Launch — April 8, 2026 · 5 PM KST
                 </p>
 
       </div>
