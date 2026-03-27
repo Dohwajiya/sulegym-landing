@@ -13,6 +13,9 @@ interface TimeLeft {
 // 변경하려면 이 값을 수정하세요.
 const TARGET_DATE = new Date("2026-04-08T17:00:00+09:00");
 
+// ✅ 카운트다운 종료 후 리다이렉트할 URL (카페24 쇼핑몰)
+const REDIRECT_URL = "https://sulegym.co.kr";
+
 function calculateTimeLeft(): TimeLeft {
   const now = new Date();
   const diff = TARGET_DATE.getTime() - now.getTime();
@@ -66,13 +69,21 @@ export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    // 마운트 직후 비동기 콜백으로 즉시 계산 (1초 플레이스홀더 딜레이 제거)
-    const initialTimer = setTimeout(() => setTimeLeft(calculateTimeLeft()), 0);
+    // 카운트다운 종료 시 쇼핑몰로 리다이렉트하는 함수
+    const updateCountdown = () => {
+      const now = new Date();
+      if (now >= TARGET_DATE) {
+        window.location.replace(REDIRECT_URL);
+        return;
+      }
+      setTimeLeft(calculateTimeLeft());
+    };
+
+    // 마운트 직후 즉시 계산 (이미 런칭일이 지났으면 바로 리다이렉트)
+    const initialTimer = setTimeout(updateCountdown, 0);
 
     // 이후 1초 간격으로 업데이트
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    const timer = setInterval(updateCountdown, 1000);
 
     return () => {
       clearTimeout(initialTimer);
